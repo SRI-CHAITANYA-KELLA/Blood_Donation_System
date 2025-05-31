@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+crossorigin="anonymous">
+</head>
+<body>
+	<center>
+	<h1>Updating Donar Details form...</h1>
+	<form action="update" method="post">
+	    <input type="hidden" th:value="${donorList.donarid}" name="donarid" />
+	    <input th:value="${donorList.donarname}" name="donarname"><br>
+	    <input th:value="${donorList.donaremail}" name="donaremail"><br>
+	    <input th:value="${donorList.address}" name="address"><br>
+	    <input th:value="${donorList.age}" name="age"><br>
+	    <input th:value="${donorList.bloodgroup}" name="bloodgroup"><br>
+	    <input type="submit" value="postupdate">
+	</form>
+
+</center>
+</body>
+</html>

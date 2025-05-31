@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Donar Table</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+crossorigin="anonymous">
+<style>
+	th,tr{
+	text-align:center;
+	}
+	
+</style>
+</head>
+<body>
+<div>
+	<center><h2 style="color: red">Thank you For saving life</h2>
+	<form action="getByName">
+		<input placeholder="Enter Donar name" name="donarname" >
+		<input type="submit" class="btn btn-primary"><br>
+	</form>
+	<form action="getByAddress">
+		<input placeholder="Enter Donar address" name="address" >
+		<input type="submit" class="btn btn-primary"><br>
+	</form>
+	<table border="1px" class="table table-striped">
+		<tr>
+			<th>Donar Name</th>
+			<th>Donar Email</th>
+			<th>Donar Address</th>
+			<th>Donar Age</th>
+			<th>Blood group</th>
+		</tr>
+		
+		<tr th:each="donar : ${donorList}">
+		    <td th:text="${donar.donarname}"></td>
+		    <td th:text="${donar.donaremail}"></td>
+		    <td th:text="${donar.address}"></td>
+		    <td th:text="${donar.age}"></td>
+		    <td th:text="${donar.bloodgroup}"></td>
+		    <td>
+			    <form action="update" method="get">
+			        <input type="hidden" name="donaremail" th:value="${donar.donaremail}" />
+			        <input type="submit" value="Update" class="btn btn-warning" />
+			    </form>
+			</td>
+		    <td>
+			    <form action="deleteuser" method="get">
+			        <input type="hidden" name="email" th:value="${donar.donaremail}" />
+			        <input type="submit" value="Delete" class="btn btn-danger" />
+			    </form>
+			</td>
+
+			</tr>
+
+	</table>
+</center>
+</div>
+</body>
+</html>
